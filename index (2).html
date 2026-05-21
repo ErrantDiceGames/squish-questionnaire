@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Squish Questionnaire</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #333; }
+    h1 { font-size: 1.8em; border-bottom: 2px solid #333; padding-bottom: 10px; }
+    h2 { font-size: 1.2em; background: #f0f0f0; padding: 8px 12px; border-left: 4px solid #555; margin-top: 30px; }
+    .section { margin-bottom: 30px; }
+    .field-row { display: flex; gap: 40px; margin-bottom: 15px; }
+    .field-group { flex: 1; }
+    label.field-label { font-weight: bold; display: block; margin-bottom: 4px; }
+    input[type="text"] { border: none; border-bottom: 1px solid #333; width: 100%; font-size: 1em; padding: 4px 0; outline: none; }
+    .checkbox-grid { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: 8px; }
+    .checkbox-item { display: flex; align-items: center; gap: 6px; min-width: 100px; }
+    .checkbox-item input { width: 16px; height: 16px; }
+    .radio-group { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+    .radio-item { display: flex; align-items: center; gap: 8px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th { background: #555; color: #fff; padding: 8px; text-align: left; font-size: 0.9em; }
+    td { padding: 6px 8px; border: 1px solid #ccc; vertical-align: top; }
+    td label { display: flex; align-items: center; gap: 6px; cursor: pointer; white-space: nowrap; }
+    textarea { width: 100%; border: 1px solid #ccc; border-radius: 4px; padding: 8px; font-size: 1em; margin-top: 8px; resize: vertical; box-sizing: border-box; }
+    .submit-btn { display: block; margin: 30px auto; padding: 12px 40px; background: #333; color: #fff; border: none; border-radius: 4px; font-size: 1.1em; cursor: pointer; }
+    .submit-btn:hover { background: #555; }
+    @media print { .submit-btn { display: none; } }
+  </style>
+</head>
+<body>
+
+<h1>Squish Questionnaire</h1>
+
+<!-- Basic Info -->
+<div class="section">
+  <div class="field-row">
+    <div class="field-group">
+      <label class="field-label">Character Name</label>
+      <input type="text" name="character_name" placeholder="Enter character name">
+    </div>
+    <div class="field-group">
+      <label class="field-label">Preferred Job</label>
+      <input type="text" name="preferred_job" placeholder="Enter preferred job">
+    </div>
+  </div>
+</div>
+
+<!-- Jobs at 75 -->
+<div class="section">
+  <h2>Jobs at 75</h2>
+  <div class="checkbox-grid">
+    <label class="checkbox-item"><input type="checkbox" name="jobs" value="WAR"> WAR</label>
+    <label class="checkbox-item"><input type="checkbox" name="jobs" value="MNK"> MNK</label>
+    <label class="checkbox-item"><input type="checkbox" name="jobs" value="WHM"> WHM</label>
+    <label class="checkbox-item"><input type="checkbox" name="jobs" value="BLM"> BLM</label>
+    <label class="checkbox-item"><input type="checkbox" name="jobs" value="RDM"> RDM</label>
+    <label class="checkbox-item"><input type="checkbox" name="jobs" value="THF"> THF</label>
+    <label class="checkbox-item"><input type="checkbox" name="jobs" value="PLD"> PLD</label>
+    <label class="checkbox-item"><input type="checkbox" name="jobs" value="DRK"> DRK</label>
+    <label class="checkbox-item"><input type="checkbox" name="jobs" value="BST"> BST</label>
+    <label class="checkbox-item"><input type="checkbox" name="jobs" value="BRD"> BRD</label>
+    <label class="checkbox-item"><input type="checkbox" name="jobs" value="RNG"> RNG</label>
+    <label class="checkbox-item"><input type="checkbox" name="jobs" value="SAM"> SAM</label>
+    <label class="checkbox-item"><input type="checkbox" name="jobs" value="NIN"> NIN</label>
+    <label class="checkbox-item"><input type="checkbox" name="jobs" value="DRG"> DRG</label>
+    <label class="checkbox-item"><input type="checkbox" name="jobs" value="SMN"> SMN</label>
+    <label class="checkbox-item"><input type="checkbox" name="jobs" value="PUP"> PUP</label>
+    <label class="checkbox-item"><input type="checkbox" name="jobs" value="COR"> COR</label>
+    <label class="checkbox-item"><input type="checkbox" name="jobs" value="BLU"> BLU</label>
+  </div>
+</div>
+
+<!-- Available Days -->
+<div class="section">
+  <h2>Available Days of the Week</h2>
+  <div class="checkbox-grid">
+    <label class="checkbox-item"><input type="checkbox" name="available_days" value="Mon"> Mon</label>
+    <label class="checkbox-item"><input type="checkbox" name="available_days" value="Tues"> Tues</label>
+    <label class="checkbox-item"><input type="checkbox" name="available_days" value="Wed"> Wed</label>
+    <label class="checkbox-item"><input type="checkbox" name="available_days" value="Thurs"> Thurs</label>
+    <label class="checkbox-item"><input type="checkbox" name="available_days" value="Fri"> Fri</label>
+    <label class="checkbox-item"><input type="checkbox" name="available_days" value="Sat"> Sat</label>
+    <label class="checkbox-item"><input type="checkbox" name="available_days" value="Sun"> Sun</label>
+  </div>
+</div>
+
+<!-- Preferred Event Days -->
+<div class="section">
+  <h2>Preferred Event Days</h2>
+  <div class="checkbox-grid">
+    <label class="checkbox-item"><input type="checkbox" name="event_days" value="Mon"> Mon</label>
+    <label class="checkbox-item"><input type="checkbox" name="event_days" value="Tues"> Tues</label>
+    <label class="checkbox-item"><input type="checkbox" name="event_days" value="Wed"> Wed</label>
+    <label class="checkbox-item"><input type="checkbox" name="event_days" value="Thurs"> Thurs</label>
+    <label class="checkbox-item"><input type="checkbox" name="event_days" value="Fri"> Fri</label>
+    <label class="checkbox-item"><input type="checkbox" name="event_days" value="Sat"> Sat</label>
+    <label class="checkbox-item"><input type="checkbox" name="event_days" value="Sun"> Sun</label>
+  </div>
+</div>
+
+<!-- Events per Week -->
+<div class="section">
+  <h2>Preferred Amount of Event Days Per Week</h2>
+  <div class="radio-group">
+    <label class="radio-item"><input type="radio" name="events_per_week" value="0-1"> 0–1 (call me for a boss fight)</label>
+    <label class="radio-item"><input type="radio" name="events_per_week" value="1"> 1</label>
+    <label class="radio-item"><input type="radio" name="events_per_week" value="2-3"> 2–3</label>
+    <label class="radio-item"><input type="radio" name="events_per_week" value="3-4"> 3–4</label>
+    <label class="radio-item"><input type="radio" name="events_per_week" value="5"> 5</label>
+    <label class="radio-item"><input type="radio" name="events_per_week" value="6-7"> 6–7 (No life?)</label>
+  </div>
+</div>
+
+<!-- Events Interested In -->
+<div class="section">
+  <h2>Events Interested In</h2>
+  <div class="checkbox-grid">
+    <label class="checkbox-item"><input type="checkbox" name="events" value="Sky"> Sky</label>
+    <label class="checkbox-item"><input type="checkbox" name="events" value="SEA"> SEA</label>
+    <label class="checkbox-item"><input type="checkbox" name="events" value="Limbus"> Limbus</label>
+    <label class="checkbox-item"><input type="checkbox" name="events" value="Dynamis"> Dynamis</label>
+    <label class="checkbox-item"><input type="checkbox" name="events" value="Pop NM"> Pop NM</label>
+    <label class="checkbox-item"><input type="checkbox" name="events" value="KS99"> KS99</label>
+    <label class="checkbox-item"><input type="checkbox" name="events" value="Ouryu/B2"> Ouryu/B2</label>
+    <label class="checkbox-item"><input type="checkbox" name="events" value="HENM"> HENM</label>
+    <label class="checkbox-item"><input type="checkbox" name="events" value="WTB"> WTB</label>
+  </div>
+</div>
+
+<!-- SKY -->
+<div class="section">
+  <h2>SKY – Loot Interests</h2>
+  <table>
+    <thead>
+      <tr><th>Genbu</th><th>Seiryu</th><th>Suzaku</th><th>Byakko</th><th>Kirin</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><label><input type="checkbox" name="sky_genbu" value="Shield"> Shield</label></td>
+        <td><label><input type="checkbox" name="sky_seiryu" value="Kote"> Kote</label></td>
+        <td><label><input type="checkbox" name="sky_suzaku" value="Sun-Ate"> Sun-Ate</label></td>
+        <td><label><input type="checkbox" name="sky_byakko" value="Haidate"> Haidate</label></td>
+        <td><label><input type="checkbox" name="sky_kirin" value="Osode"> Osode</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox" name="sky_genbu" value="Kabuto"> Kabuto</label></td>
+        <td><label><input type="checkbox" name="sky_seiryu" value="D. Head"> D. Head</label></td>
+        <td><label><input type="checkbox" name="sky_suzaku" value="D. Hands"> D. Hands</label></td>
+        <td><label><input type="checkbox" name="sky_byakko" value="D. Legs"> D. Legs</label></td>
+        <td><label><input type="checkbox" name="sky_kirin" value="Pole"> Pole</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox" name="sky_genbu" value="A. Hands"> A. Hands</label></td>
+        <td><label><input type="checkbox" name="sky_seiryu" value="M. Head"> M. Head</label></td>
+        <td><label><input type="checkbox" name="sky_suzaku" value="E. Head"> E. Head</label></td>
+        <td><label><input type="checkbox" name="sky_byakko" value="E. Feet"> E. Feet</label></td>
+        <td><label><input type="checkbox" name="sky_kirin" value="N. Body"> N. Body</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox" name="sky_genbu" value="M. Hands"> M. Hands</label></td>
+        <td><label><input type="checkbox" name="sky_seiryu" value="W. Hands"> W. Hands</label></td>
+        <td><label><input type="checkbox" name="sky_suzaku" value="N. Feet"> N. Feet</label></td>
+        <td><label><input type="checkbox" name="sky_byakko" value="N. Hands"> N. Hands</label></td>
+        <td><label><input type="checkbox" name="sky_kirin" value="D. Body"> D. Body</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox" name="sky_genbu" value="W. Feet"> W. Feet</label></td>
+        <td><label><input type="checkbox" name="sky_seiryu" value="A. Legs"> A. Legs</label></td>
+        <td><label><input type="checkbox" name="sky_suzaku" value="A. Legs"> A. Legs</label></td>
+        <td><label><input type="checkbox" name="sky_byakko" value="A. Head"> A. Head</label></td>
+        <td><label><input type="checkbox" name="sky_kirin" value="W. Legs"> W. Legs</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox" name="sky_genbu" value="A. Head"> A. Head</label></td>
+        <td></td><td></td><td></td><td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SEA -->
+<div class="section">
+  <h2>SEA – Loot Interests</h2>
+  <table>
+    <thead>
+      <tr><th>Temperance</th><th>Fortitude</th><th>Faith</th><th>Hope</th><th>Justice</th><th>Prudence</th><th>Love</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><label><input type="checkbox" name="sea_temperance" value="Axe"> Axe</label></td>
+        <td><label><input type="checkbox" name="sea_fortitude" value="Axe"> Axe</label></td>
+        <td><label><input type="checkbox" name="sea_faith" value="Hat"> Hat</label></td>
+        <td><label><input type="checkbox" name="sea_hope" value="Staff"> Staff</label></td>
+        <td><label><input type="checkbox" name="sea_justice" value="Sword"> Sword</label></td>
+        <td><label><input type="checkbox" name="sea_prudence" value="Rod"> Rod</label></td>
+        <td><label><input type="checkbox" name="sea_love" value="Halberd"> Halberd</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox" name="sea_temperance" value="Torque"> Torque</label></td>
+        <td><label><input type="checkbox" name="sea_fortitude" value="Torque"> Torque</label></td>
+        <td><label><input type="checkbox" name="sea_faith" value="Torque"> Torque</label></td>
+        <td><label><input type="checkbox" name="sea_hope" value="Torque"> Torque</label></td>
+        <td><label><input type="checkbox" name="sea_justice" value="Torque"> Torque</label></td>
+        <td><label><input type="checkbox" name="sea_prudence" value="Torque"> Torque</label></td>
+        <td><label><input type="checkbox" name="sea_love" value="Torque"> Torque</label></td>
+      </tr>
+      <tr>
+        <td></td><td></td><td></td><td></td><td></td><td></td>
+        <td><label><input type="checkbox" name="sea_love" value="Novio"> Novio</label></td>
+      </tr>
+      <tr>
+        <td></td><td></td><td></td><td></td><td></td><td></td>
+        <td><label><input type="checkbox" name="sea_love" value="Novia"> Novia</label></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- LIMBUS -->
+<div class="section">
+  <h2>LIMBUS – Loot Interests</h2>
+  <table>
+    <thead>
+      <tr><th>Omega</th><th>Ultima</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><label><input type="checkbox" name="limbus_omega" value="Feet"> Feet</label></td>
+        <td><label><input type="checkbox" name="limbus_ultima" value="Feet"> Feet</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox" name="limbus_omega" value="Hands"> Hands</label></td>
+        <td><label><input type="checkbox" name="limbus_ultima" value="Hands"> Hands</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox" name="limbus_omega" value="Legs"> Legs</label></td>
+        <td><label><input type="checkbox" name="limbus_ultima" value="Legs"> Legs</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox" name="limbus_omega" value="Head"> Head</label></td>
+        <td><label><input type="checkbox" name="limbus_ultima" value="Head"> Head</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox" name="limbus_omega" value="Body"> Body</label></td>
+        <td><label><input type="checkbox" name="limbus_ultima" value="Body"> Body</label></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- DYNAMIS -->
+<div class="section">
+  <h2>DYNAMIS – Activities</h2>
+  <div class="checkbox-grid">
+    <label class="checkbox-item"><input type="checkbox" name="dynamis" value="City Coin Split"> City Coin Split</label>
+    <label class="checkbox-item"><input type="checkbox" name="dynamis" value="Dreamland – I farm"> Dreamland – I farm</label>
+    <label class="checkbox-item"><input type="checkbox" name="dynamis" value="BG Paper"> BG Paper</label>
+    <label class="checkbox-item"><input type="checkbox" name="dynamis" value="Tav – I farm"> Tav – I farm</label>
+    <label class="checkbox-item"><input type="checkbox" name="dynamis" value="Just here for currency"> Just here for currency</label>
+    <label class="checkbox-item"><input type="checkbox" name="dynamis" value="Xarc Frag"> Xarc Frag</label>
+    <label class="checkbox-item"><input type="checkbox" name="dynamis" value="Necro"> Necro</label>
+    <label class="checkbox-item"><input type="checkbox" name="dynamis" value="DL Ring"> DL Ring</label>
+    <label class="checkbox-item"><input type="checkbox" name="dynamis" value="Mantle"> Mantle</label>
+    <label class="checkbox-item"><input type="checkbox" name="dynamis" value="Boss Collar"> Boss Collar</label>
+    <label class="checkbox-item"><input type="checkbox" name="dynamis" value="Ribbon"> Ribbon</label>
+    <label class="checkbox-item"><input type="checkbox" name="dynamis" value="Sash"> Sash</label>
+  </div>
+</div>
+
+<!-- KS99 -->
+<div class="section">
+  <h2>KS99 – Loot Interests</h2>
+  <table>
+    <thead>
+      <tr><th>Turtle</th><th>Behemoth</th><th>Fafy</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><label><input type="checkbox" name="ks99_turtle" value="Egg"> Egg</label></td>
+        <td><label><input type="checkbox" name="ks99_behemoth" value="Tongue"> Tongue</label></td>
+        <td><label><input type="checkbox" name="ks99_fafy" value="Beard"> Beard</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox" name="ks99_turtle" value="Strider"> Strider</label></td>
+        <td><label><input type="checkbox" name="ks99_behemoth" value="Speed Belt"> Speed Belt</label></td>
+        <td><label><input type="checkbox" name="ks99_fafy" value="Jugg"> Jugg</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox" name="ks99_turtle" value="Speed Belt"> Speed Belt</label></td>
+        <td><label><input type="checkbox" name="ks99_behemoth" value="Healing Staff"> Healing Staff</label></td>
+        <td><label><input type="checkbox" name="ks99_fafy" value="Speed Belt"> Speed Belt</label></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- HENM 1 -->
+<div class="section">
+  <h2>HENM 1 – Loot Interests</h2>
+  <table>
+    <thead>
+      <tr><th>Birds</th><th>Scorps</th><th>Crabs</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><label><input type="checkbox" name="henm1_birds" value="Trotters"> Trotters</label></td>
+        <td><label><input type="checkbox" name="henm1_scorps" value="Horns"> Horns</label></td>
+        <td><label><input type="checkbox" name="henm1_crabs" value="Belt"> Belt</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox" name="henm1_birds" value="Rucke"> Rucke</label></td>
+        <td><label><input type="checkbox" name="henm1_scorps" value="Bullet"> Bullet</label></td>
+        <td><label><input type="checkbox" name="henm1_crabs" value="Defending"> Defending</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox" name="henm1_birds" value="Lofthouse"> Lofthouse</label></td>
+        <td><label><input type="checkbox" name="henm1_scorps" value="Dilator"> Dilator</label></td>
+        <td><label><input type="checkbox" name="henm1_crabs" value="Overlord"> Overlord</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox" name="henm1_birds" value="Vaulter"> Vaulter</label></td>
+        <td><label><input type="checkbox" name="henm1_scorps" value="Optical"> Optical</label></td>
+        <td><label><input type="checkbox" name="henm1_crabs" value="Duality"> Duality</label></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- HENM 2 -->
+<div class="section">
+  <h2>HENM 2 – Loot Interests</h2>
+  <table>
+    <thead>
+      <tr><th>Mammet</th><th>Tonberry</th><th>Ultimega</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><label><input type="checkbox" name="henm2_mammet" value="Harp"> Harp</label></td>
+        <td><label><input type="checkbox" name="henm2_tonberry" value="Hangeki"> Hangeki</label></td>
+        <td><label><input type="checkbox" name="henm2_ultimega" value="Spirited"> Spirited</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox" name="henm2_mammet" value="Virolay"> Virolay</label></td>
+        <td><label><input type="checkbox" name="henm2_tonberry" value="Maledictor"> Maledictor</label></td>
+        <td><label><input type="checkbox" name="henm2_ultimega" value="Left Arm"> Left Arm</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox" name="henm2_mammet" value="Sharpshooter"> Sharpshooter</label></td>
+        <td><label><input type="checkbox" name="henm2_tonberry" value="Befouling"> Befouling</label></td>
+        <td><label><input type="checkbox" name="henm2_ultimega" value="Ensorcelled"> Ensorcelled</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox" name="henm2_mammet" value="9999 Collar"> 9999 Collar</label></td>
+        <td><label><input type="checkbox" name="henm2_tonberry" value="Obscured"> Obscured</label></td>
+        <td><label><input type="checkbox" name="henm2_ultimega" value="Bravery"> Bravery</label></td>
+      </tr>
+      <tr>
+        <td><label><input type="checkbox" name="henm2_mammet" value="Fiber"> Fiber</label></td>
+        <td><label><input type="checkbox" name="henm2_tonberry" value="Coat"> Coat</label></td>
+        <td><label><input type="checkbox" name="henm2_ultimega" value="Alloy"> Alloy</label></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- OURYU / B2 -->
+<div class="section">
+  <h2>OURYU / B2 – Loot Interests</h2>
+  <div class="checkbox-grid">
+    <label class="checkbox-item"><input type="checkbox" name="ouryu" value="Bahamut Staff"> Bahamut Staff</label>
+    <label class="checkbox-item"><input type="checkbox" name="ouryu" value="Dragon Staff"> Dragon Staff</label>
+    <label class="checkbox-item"><input type="checkbox" name="ouryu" value="Mask"> Mask</label>
+    <label class="checkbox-item"><input type="checkbox" name="ouryu" value="Hose"> Hose</label>
+    <label class="checkbox-item"><input type="checkbox" name="ouryu" value="Zaghnal"> Zaghnal</label>
+  </div>
+</div>
+
+<!-- WTB -->
+<div class="section">
+  <h2>WTB – Loot Interests</h2>
+  <div class="checkbox-grid">
+    <label class="checkbox-item"><input type="checkbox" name="wtb" value="Ying Yang Robe"> Ying Yang Robe</label>
+    <label class="checkbox-item"><input type="checkbox" name="wtb" value="Carby Cuffs"> Carby Cuffs</label>
+    <label class="checkbox-item"><input type="checkbox" name="wtb" value="Ramuh Mace"> Ramuh Mace</label>
+    <label class="checkbox-item"><input type="checkbox" name="wtb" value="Titan Baselarde"> Titan Baselarde</label>
+    <label class="checkbox-item"><input type="checkbox" name="wtb" value="Leviathan Couse"> Leviathan Couse</label>
+    <label class="checkbox-item"><input type="checkbox" name="wtb" value="Ifrit Bow"> Ifrit Bow</label>
+    <label class="checkbox-item"><input type="checkbox" name="wtb" value="Garuda Sickle"> Garuda Sickle</label>
+    <label class="checkbox-item"><input type="checkbox" name="wtb" value="Shiva Shotel"> Shiva Shotel</label>
+  </div>
+</div>
+
+<!-- POPPED NM -->
+<div class="section">
+  <h2>POPPED NM – Interests</h2>
+  <div class="checkbox-grid">
+    <label class="checkbox-item"><input type="checkbox" name="popped_nm" value="Alastor Antlion"> Alastor Antlion</label>
+    <label class="checkbox-item"><input type="checkbox" name="popped_nm" value="Bomb Queen"> Bomb Queen</label>
+    <label class="checkbox-item"><input type="checkbox" name="popped_nm" value="Gration"> Gration</label>
+    <label class="checkbox-item"><input type="checkbox" name="popped_nm" value="Bugbear Matman"> Bugbear Matman</label>
+    <label class="checkbox-item"><input type="checkbox" name="popped_nm" value="Crimson-Toothed Pawberry"> Crimson-Toothed Pawberry</label>
+    <label class="checkbox-item"><input type="checkbox" name="popped_nm" value="Hakutaku"> Hakutaku</label>
+    <label class="checkbox-item"><input type="checkbox" name="popped_nm" value="Golden-Tongued Culberry"> Golden-Tongued Culberry</label>
+    <label class="checkbox-item"><input type="checkbox" name="popped_nm" value="Shen"> Shen</label>
+    <label class="checkbox-item"><input type="checkbox" name="popped_nm" value="Unstable Cluster"> Unstable Cluster</label>
+    <label class="checkbox-item"><input type="checkbox" name="popped_nm" value="Subligar Farm"> Subligar Farm</label>
+  </div>
+  <div style="margin-top:12px;">
+    <label class="field-label">Other</label>
+    <input type="text" name="popped_nm_other" placeholder="Other NM...">
+  </div>
+</div>
+
+<!-- Comments -->
+<div class="section">
+  <h2>Comments or an Event You Want Added</h2>
+  <textarea name="comments" rows="6" placeholder="Enter any comments or events you'd like added..."></textarea>
+</div>
+
+<button class="submit-btn" onclick="alert('Form submitted! (Connect this to your survey backend or copy-paste into Google Forms)')">Submit</button>
+
+</body>
+</html>
