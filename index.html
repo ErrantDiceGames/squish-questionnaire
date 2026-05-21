@@ -260,11 +260,11 @@
     <label class="checkbox-item"><input type="checkbox" name="dynamis" value="Just here for currency"> Just here for currency</label>
     <label class="checkbox-item"><input type="checkbox" name="dynamis" value="Xarc Frag"> Xarc Frag</label>
     <label class="checkbox-item"><input type="checkbox" name="dynamis" value="Necro"> Necro</label>
-    <label class="checkbox-item"><input type="checkbox" name="dynamis" value="DL Ring"> DL Ring</label>
-    <label class="checkbox-item"><input type="checkbox" name="dynamis" value="Mantle"> Mantle</label>
-    <label class="checkbox-item"><input type="checkbox" name="dynamis" value="Boss Collar"> Boss Collar</label>
-    <label class="checkbox-item"><input type="checkbox" name="dynamis" value="Ribbon"> Ribbon</label>
-    <label class="checkbox-item"><input type="checkbox" name="dynamis" value="Sash"> Sash</label>
+    <label class="checkbox-item"><input type="checkbox" name="dynamis" value="Shadow Ring"> Shadow Ring</label>
+    <label class="checkbox-item"><input type="checkbox" name="dynamis" value="Shadow Mantle"> Shadow Mantle</label>
+    <label class="checkbox-item"><input type="checkbox" name="dynamis" value="Dream Collar"> Dream Collar</label>
+    <label class="checkbox-item"><input type="checkbox" name="dynamis" value="Dream Ribbon"> Dream Ribbon</label>
+    <label class="checkbox-item"><input type="checkbox" name="dynamis" value="Dream Sand"> Dream Sand</label>
   </div>
 </div>
 
@@ -305,22 +305,22 @@
     <tbody>
       <tr>
         <td><label><input type="checkbox" name="henm1_birds" value="Trotters"> Trotters</label></td>
-        <td><label><input type="checkbox" name="henm1_scorps" value="Horns"> Horns</label></td>
+        <td><label><input type="checkbox" name="henm1_scorps" value="Horus"> Horus</label></td>
         <td><label><input type="checkbox" name="henm1_crabs" value="Belt"> Belt</label></td>
       </tr>
       <tr>
         <td><label><input type="checkbox" name="henm1_birds" value="Rucke"> Rucke</label></td>
         <td><label><input type="checkbox" name="henm1_scorps" value="Bullet"> Bullet</label></td>
-        <td><label><input type="checkbox" name="henm1_crabs" value="Defending"> Defending</label></td>
+        <td><label><input type="checkbox" name="henm1_crabs" value="Deflecting"> Deflecting</label></td>
       </tr>
       <tr>
-        <td><label><input type="checkbox" name="henm1_birds" value="Lofthouse"> Lofthouse</label></td>
-        <td><label><input type="checkbox" name="henm1_scorps" value="Dilator"> Dilator</label></td>
+        <td><label><input type="checkbox" name="henm1_birds" value="Luftpuse"> Luftpuse</label></td>
+        <td><label><input type="checkbox" name="henm1_scorps" value="Dilation"> Dilation</label></td>
         <td><label><input type="checkbox" name="henm1_crabs" value="Overlord"> Overlord</label></td>
       </tr>
       <tr>
         <td><label><input type="checkbox" name="henm1_birds" value="Vaulter"> Vaulter</label></td>
-        <td><label><input type="checkbox" name="henm1_scorps" value="Optical"> Optical</label></td>
+        <td><label><input type="checkbox" name="henm1_scorps" value="Opuntia"> Opuntia</label></td>
         <td><label><input type="checkbox" name="henm1_crabs" value="Duality"> Duality</label></td>
       </tr>
     </tbody>
@@ -341,13 +341,13 @@
         <td><label><input type="checkbox" name="henm2_ultimega" value="Spirited"> Spirited</label></td>
       </tr>
       <tr>
-        <td><label><input type="checkbox" name="henm2_mammet" value="Virolay"> Virolay</label></td>
+        <td><label><input type="checkbox" name="henm2_mammet" value="Virology"> Virology</label></td>
         <td><label><input type="checkbox" name="henm2_tonberry" value="Maledictor"> Maledictor</label></td>
         <td><label><input type="checkbox" name="henm2_ultimega" value="Left Arm"> Left Arm</label></td>
       </tr>
       <tr>
         <td><label><input type="checkbox" name="henm2_mammet" value="Sharpshooter"> Sharpshooter</label></td>
-        <td><label><input type="checkbox" name="henm2_tonberry" value="Befouling"> Befouling</label></td>
+        <td><label><input type="checkbox" name="henm2_tonberry" value="Begrudging"> Begrudging</label></td>
         <td><label><input type="checkbox" name="henm2_ultimega" value="Ensorcelled"> Ensorcelled</label></td>
       </tr>
       <tr>
@@ -423,11 +423,7 @@
 <div id="statusMsg" style="text-align:center; margin-top:16px; font-size:1em; display:none;"></div>
 
 <script>
-  // -------------------------------------------------------
-  // PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL BELOW
-  // -------------------------------------------------------
   var APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxhhh0ZqU4EgBn9jkRSJthE80veIwLXLPwuLb9Hi1VhTpXa-yjH-JVdyqiyW39kt07B/exec";
-  // -------------------------------------------------------
 
   function getChecked(name) {
     return Array.from(document.querySelectorAll('input[name="' + name + '"]:checked'))
@@ -456,13 +452,11 @@
       event_days:        getChecked("event_days"),
       events_per_week:   getRadio("events_per_week"),
       events:            getChecked("events"),
-      // SKY
       sky_genbu:         getChecked("sky_genbu"),
       sky_seiryu:        getChecked("sky_seiryu"),
       sky_suzaku:        getChecked("sky_suzaku"),
       sky_byakko:        getChecked("sky_byakko"),
       sky_kirin:         getChecked("sky_kirin"),
-      // SEA
       sea_temperance:    getChecked("sea_temperance"),
       sea_fortitude:     getChecked("sea_fortitude"),
       sea_faith:         getChecked("sea_faith"),
@@ -470,23 +464,18 @@
       sea_justice:       getChecked("sea_justice"),
       sea_prudence:      getChecked("sea_prudence"),
       sea_love:          getChecked("sea_love"),
-      // LIMBUS
       limbus_omega:      getChecked("limbus_omega"),
       limbus_ultima:     getChecked("limbus_ultima"),
-      // DYNAMIS
       dynamis:           getChecked("dynamis"),
-      // KS99
       ks99_turtle:       getChecked("ks99_turtle"),
       ks99_behemoth:     getChecked("ks99_behemoth"),
       ks99_fafy:         getChecked("ks99_fafy"),
-      // HENM
       henm1_birds:       getChecked("henm1_birds"),
       henm1_scorps:      getChecked("henm1_scorps"),
       henm1_crabs:       getChecked("henm1_crabs"),
       henm2_mammet:      getChecked("henm2_mammet"),
       henm2_tonberry:    getChecked("henm2_tonberry"),
       henm2_ultimega:    getChecked("henm2_ultimega"),
-      // Other
       ouryu:             getChecked("ouryu"),
       wtb:               getChecked("wtb"),
       popped_nm:         getChecked("popped_nm"),
@@ -505,7 +494,7 @@
 
     fetch(APPS_SCRIPT_URL, {
       method: "POST",
-      mode: "no-cors",           // required for Apps Script
+      mode: "no-cors",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
     })
